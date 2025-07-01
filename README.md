@@ -132,7 +132,7 @@ messages = ["Message 1", "Message 2"]
 predictions, probabilities = detector.predict_batch(messages)
 ```
 
-## 🛠️ Development
+## Development
 
 ### Training a New Model
 
@@ -193,7 +193,7 @@ streamlit run main.py
    ```
 2. Build and run the container
 
-## 🔧 Command Line Options
+## Command Line Options
 
 The deployment script supports various options:
 
