@@ -18,63 +18,6 @@ body, .stApp {
     100% {background-position: 0% 50%;}
 }
 
-/* Techy, neon-glow header and accent bar */
-.main-header {
-    font-family: 'Orbitron', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
-    font-size: 2.7rem;
-    color: #00ffe7;
-    text-align: center;
-    margin-bottom: 2.2rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 16px #00ffe7, 0 0px 2px #222;
-    position: relative;
-    z-index: 2;
-    animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
-}
-
-.neon-glow {
-    filter: drop-shadow(0 0 8px #00ffe7) drop-shadow(0 0 16px #00ffe7);
-}
-
-.icon-glow {
-    font-size: 2.2rem;
-    margin-right: 0.7rem;
-    vertical-align: middle;
-    color: #00ffe7;
-    filter: drop-shadow(0 0 8px #00ffe7);
-    animation: pulseIcon 2.5s infinite alternate;
-}
-@keyframes pulseIcon {
-    0% { filter: drop-shadow(0 0 8px #00ffe7); }
-    100% { filter: drop-shadow(0 0 24px #00ffe7); }
-}
-
-.main-title-text {
-    font-family: 'Orbitron', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
-    letter-spacing: 2.5px;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #00ffe7;
-    text-shadow: 0 0 12px #00ffe7, 0 0 2px #222;
-    vertical-align: middle;
-}
-
-.header-bar {
-    display: block;
-    margin: 1.1rem auto 0 auto;
-    width: 220px;
-    height: 6px;
-    border-radius: 4px;
-    background: linear-gradient(90deg, #00ffe7 0%, #00bfff 100%);
-    box-shadow: 0 0 24px 4px #00ffe7cc, 0 0 8px 2px #00bfff99;
-    animation: barGlow 2.5s infinite alternate;
-}
-@keyframes barGlow {
-    0% { box-shadow: 0 0 24px 4px #00ffe7cc, 0 0 8px 2px #00bfff99; }
-    100% { box-shadow: 0 0 48px 12px #00ffe7cc, 0 0 16px 4px #00bfff99; }
-}
-
 .main-header {
     font-size: 3.5rem;
     color: #00ffe7;
