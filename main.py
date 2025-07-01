@@ -6,6 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 import os
+import random
 
 
 # Page configuration
@@ -17,22 +18,18 @@ st.set_page_config(
 #CSS
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-st.markdown('''
-<div class="bubbles">
-  <div class="bubble" style="width:60px; height:60px; left:10vw; animation-delay:0s;"></div>
-  <div class="bubble" style="width:40px; height:40px; left:30vw; animation-delay:2s;"></div>
-  <div class="bubble" style="width:80px; height:80px; left:50vw; animation-delay:4s;"></div>
-  <div class="bubble" style="width:50px; height:50px; left:70vw; animation-delay:1s;"></div>
-  <div class="bubble" style="width:70px; height:70px; left:85vw; animation-delay:3s;"></div>
-  
-  <div class="bubble" style="width:60px; height:60px; left:10vw; animation-delay:3s;"></div>
-  <div class="bubble" style="width:40px; height:40px; left:30vw; animation-delay:1s;"></div>
-  <div class="bubble" style="width:80px; height:80px; left:50vw; animation-delay:5s;"></div>
-  <div class="bubble" style="width:50px; height:50px; left:70vw; animation-delay:2s;"></div>
-  <div class="bubble" style="width:70px; height:70px; left:85vw; animation-delay:0s;"></div>
-</div>
-''', unsafe_allow_html=True)
+bubble_html = '<div class="bubbles">'
+for _ in range(10):
+    size = random.randint(35, 85)
+    left = random.randint(5, 90)
+    delay = random.uniform(0, 10)
+    bubble_html += (
+        f'<div class="bubble" '
+        f'style="width:{size}px; height:{size}px; left:{left}vw; animation-delay:{delay:.1f}s;"></div>'
+    )
+bubble_html += '</div>'
 
+st.markdown(bubble_html, unsafe_allow_html=True)
 @st.cache_resource
 def load_models():
     """Load the trained model and vectorizer"""
