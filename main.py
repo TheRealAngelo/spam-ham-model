@@ -10,12 +10,10 @@ import os
 # Page configuration
 st.set_page_config(
     page_title="SMS Spam Detector",
-    page_icon="📱",
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-# Custom CSS for better styling
+#CSS
 st.markdown("""
 <style>
     .main-header {
@@ -146,7 +144,7 @@ def main():
                             title="Prediction Probabilities"
                         )
                         fig.update_layout(showlegend=False, height=400)
-                        fig.update_yaxis(range=[0, 1])
+                        fig.update_yaxes(range=[0, 1])
                         st.plotly_chart(fig, use_container_width=True)
                     
                     with col_prob2:

@@ -75,8 +75,8 @@ def train_spam_detector():
     joblib.dump(model, 'models/spam_detector_model.joblib')
     joblib.dump(vectorizer, 'models/vectorizer.joblib')
     
-    print("✅ Model and vectorizer saved successfully!")
-    print("📁 Files saved:")
+    print(" Model and vectorizer saved successfully!")
+    print(" Files saved:")
     print("   - models/spam_detector_model.joblib")
     print("   - models/vectorizer.joblib")
     
