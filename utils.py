@@ -29,9 +29,9 @@ class SpamDetector:
             self.model = joblib.load(self.model_path)
             self.vectorizer = joblib.load(self.vectorizer_path)
             self.is_loaded = True
-            print("✅ Models loaded successfully!")
+            print(" Models loaded successfully!")
         except FileNotFoundError as e:
-            print(f"❌ Error loading models: {e}")
+            print(f" Error loading models: {e}")
             print("Please make sure you have run train.py first to create the model files.")
             raise
     
@@ -135,7 +135,7 @@ def test_detector():
         prediction, probabilities = detector.predict(message)
         spam_confidence = probabilities[1] * 100
         
-        print(f"\n📧 Test {i}:")
+        print(f"\n Test {i}:")
         print(f"Message: {message}")
         print(f"Prediction: {prediction.upper()}")
         print(f"Spam Confidence: {spam_confidence:.2f}%")
