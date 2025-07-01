@@ -13,7 +13,7 @@ import random
 st.set_page_config(
     page_title="SMS Spam Detector",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"  
 )
 #CSS
 with open("style.css") as f:
@@ -76,7 +76,24 @@ def main():
         )
         
         # Prediction button
-        if st.button(" Analyze Message", type="primary", use_container_width=True):
+        analyze_btn_style = """
+        <style>
+        .stButton > button.analyze-btn {
+            font-size: 0.9rem !important;
+            padding: 0.4rem 1.2rem !important;
+            min-height: 32px !important;
+            min-width: 120px !important;
+        }
+        </style>
+        """
+        st.markdown(analyze_btn_style, unsafe_allow_html=True)
+        analyze_btn = st.button(
+            " Analyze Message",
+            type="primary",
+            use_container_width=True,
+            key="analyze_btn"
+        )
+        if analyze_btn:
             if message.strip():
                 with st.spinner("Analyzing message..."):
                     prediction, probabilities = predict_spam(message, model, vectorizer)
