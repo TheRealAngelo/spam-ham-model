@@ -13,8 +13,9 @@ st.set_page_config(
     page_title="SMS Spam Detector",
     layout="wide",
     initial_sidebar_state="expanded"
+   st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True) 
 )
-st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
+
 @st.cache_resource
 def load_models():
     """Load the trained model and vectorizer"""
