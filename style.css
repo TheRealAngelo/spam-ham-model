@@ -1,3 +1,6 @@
+/* Import a techy, futuristic font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap');
+
 /* Modern, dark chrome-inspired style for SMS Spam Detector */
 body, .stApp {
     min-height: 100vh;
@@ -5,6 +8,8 @@ body, .stApp {
     background-size: 400% 400%;
     animation: gradientBG 18s ease-in-out infinite;
     color: #e0e6ed;
+    font-family: 'Share Tech Mono', 'Orbitron', 'Consolas', 'Menlo', 'monospace', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 @keyframes gradientBG {
@@ -19,9 +24,11 @@ body, .stApp {
     text-align: center;
     margin-bottom: 2rem;
     font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 16px #00ffe7, 0 0px 2px #222;
+    letter-spacing: 2.5px;
+    text-shadow: 0 2px 24px #00ffe7, 0 0px 2px #222, 0 0 8px #00ffe7;
     animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
+    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
+    text-transform: uppercase;
 }
 
 @keyframes fadeInDown {
@@ -36,11 +43,13 @@ body, .stApp {
     text-align: center;
     font-size: 1.4rem;
     font-weight: bold;
-    box-shadow: 0 4px 32px 0 rgba(0,255,231,0.10);
+    box-shadow: 0 4px 32px 0 #00ffe733, 0 0 8px #00ffe7;
     background: linear-gradient(120deg, #23272b 60%, #31363b 100%);
-    border: 1.5px solid #444b52;
+    border: 1.5px solid #00ffe7;
     transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeIn 1s both;
+    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
+    letter-spacing: 1.2px;
 }
 
 @keyframes fadeIn {
@@ -52,8 +61,9 @@ body, .stApp {
     background: linear-gradient(90deg, #2c2323 60%, #3a2323 100%);
     color: #ff3c6a;
     border: 2px solid #ff3c6a;
-    box-shadow: 0 2px 24px 0 rgba(255,60,106,0.10);
+    box-shadow: 0 2px 24px 0 #ff3c6a33, 0 0 8px #ff3c6a;
     animation: pulseSpam 1.5s infinite alternate;
+    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
 
 @keyframes pulseSpam {
@@ -65,8 +75,9 @@ body, .stApp {
     background: linear-gradient(90deg, #23322c 60%, #23403a 100%);
     color: #00ffe7;
     border: 2px solid #00ffe7;
-    box-shadow: 0 2px 24px 0 rgba(0,255,231,0.10);
+    box-shadow: 0 2px 24px 0 #00ffe733, 0 0 8px #00ffe7;
     animation: pulseHam 1.5s infinite alternate;
+    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
 
 @keyframes pulseHam {
@@ -80,9 +91,11 @@ body, .stApp {
     border-radius: 12px;
     border-left: 6px solid #00ffe7;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 16px 0 rgba(0,255,231,0.08);
+    box-shadow: 0 2px 16px 0 #00ffe71a, 0 0 8px #00ffe7;
     color: #e0e6ed;
     transition: box-shadow 0.3s;
+    font-family: 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
+    font-size: 1.08rem;
 }
 
 .info-box:hover {
@@ -93,21 +106,24 @@ body, .stApp {
     border-radius: 8px !important;
     font-size: 1.1rem;
     transition: box-shadow 0.2s, background 0.2s;
+    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
 
 .stButton > button {
     background: linear-gradient(90deg, #00ffe7 60%, #00bfff 100%);
     color: #181c20;
     font-weight: 700;
-    box-shadow: 0 2px 12px 0 rgba(0,255,231,0.10);
+    box-shadow: 0 2px 12px 0 #00ffe71a, 0 0 8px #00ffe7;
     border: none;
     margin-bottom: 0.5rem;
     text-shadow: 0 1px 8px #00ffe7;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
 }
 
 .stButton > button:hover {
     background: linear-gradient(90deg, #00bfff 60%, #00ffe7 100%);
-    box-shadow: 0 4px 24px 0 rgba(0,255,231,0.18);
+    box-shadow: 0 4px 24px 0 #00ffe72e, 0 0 12px #00ffe7;
     transform: translateY(-2px) scale(1.04);
 }
 
@@ -115,30 +131,33 @@ body, .stApp {
     background: rgba(30,34,40,0.98);
     border: 1.5px solid #00bfff;
     color: #e0e6ed;
-    box-shadow: 0 1px 8px 0 rgba(0,255,231,0.04);
+    box-shadow: 0 1px 8px 0 #00ffe710;
     padding: 1rem;
     font-size: 1.1rem;
     transition: border 0.2s, box-shadow 0.2s;
+    font-family: 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
 
 .stTextArea textarea:focus {
     border: 2px solid #00ffe7;
-    box-shadow: 0 2px 16px 0 rgba(0,255,231,0.10);
+    box-shadow: 0 2px 16px 0 #00ffe71a;
 }
 
 .stMetric {
     background: rgba(30,34,40,0.92);
     border-radius: 8px;
-    box-shadow: 0 2px 12px 0 rgba(0,255,231,0.06);
+    box-shadow: 0 2px 12px 0 #00ffe710, 0 0 8px #00ffe7;
     padding: 0.5rem 0.8rem;
     margin-bottom: 0.5rem;
     color: #00ffe7;
     border: 1px solid #00bfff;
     transition: box-shadow 0.2s;
+    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
+    letter-spacing: 1px;
 }
 
 .stMetric:hover {
-    box-shadow: 0 4px 24px 0 rgba(0,255,231,0.12);
+    box-shadow: 0 4px 24px 0 #00ffe71f, 0 0 12px #00ffe7;
 }
 
 /* Animated floating bubbles background - cyber chrome style */
