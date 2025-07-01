@@ -35,10 +35,70 @@ body, .stApp {
     margin-bottom: 2.2rem;
     font-weight: 900;
     letter-spacing: 2px;
-    text-shadow: 0 2px 24px #ff00cc, 0 0px 2px #222, 0 0 8px #00fff7;
+    text-shadow:
+        0 2px 24px #ff00cc,
+        0 0px 2px #222,
+        0 0 8px #00fff7,
+        2px 0 #ffe600,
+        -2px 0 #00fff7;
     position: relative;
     z-index: 2;
     animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both, glitch 2.2s infinite linear alternate-reverse;
+    overflow: visible;
+}
+
+/* Multi-layered glitch using pseudo-elements */
+.main-header::before, .main-header::after {
+    content: 'SMS Spam Detector';
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    pointer-events: none;
+    opacity: 0.7;
+}
+.main-header::before {
+    color: #ff00cc;
+    z-index: 1;
+    transform: translate(-2px, -2px);
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    animation: glitchTop 1.2s infinite linear alternate-reverse;
+}
+.main-header::after {
+    color: #00fff7;
+    z-index: 1;
+    transform: translate(2px, 2px);
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitchBot 1.2s infinite linear alternate-reverse;
+}
+@keyframes glitchTop {
+    0% { transform: translate(-2px, -2px); }
+    20% { transform: translate(-4px, 0px); }
+    40% { transform: translate(-2px, 2px); }
+    60% { transform: translate(-6px, -1px); }
+    80% { transform: translate(-2px, -2px); }
+    100% { transform: translate(-2px, 2px); }
+}
+@keyframes glitchBot {
+    0% { transform: translate(2px, 2px); }
+    20% { transform: translate(4px, 0px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(6px, 1px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(2px, -2px); }
+}
+
+/* Add a bright yellow highlight for cyberpunk pop */
+.main-header {
+    background: linear-gradient(90deg, #ffe600 0%, #ff00cc 50%, #00fff7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px #ffe600) drop-shadow(0 0 16px #ff00cc);
 }
 
 .neon-glow {
@@ -212,17 +272,4 @@ body, .stApp {
 @media (max-width: 900px) {
     .main-header { font-size: 2.2rem; }
     .prediction-box { font-size: 1.1rem; }
-}
-
-/* Add a glitch pseudo-element for extra effect */
-.main-header::after {
-    content: 'SMS Spam Detector';
-    position: absolute;
-    left: 2px; top: 2px;
-    color: #ff00cc;
-    opacity: 0.7;
-    z-index: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
-    animation: glitch 1.5s infinite linear alternate-reverse;
-    pointer-events: none;
 }
