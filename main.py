@@ -54,7 +54,7 @@ def predict_spam(text, model, vectorizer):
 
 def main():
     # Header
-    st.markdown('<h1 class="main-header"> SMS Spam Detector</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header"> Message Spam Detector</h1>', unsafe_allow_html=True)
     # Sidebar
     st.sidebar.title(" Controls")
     st.sidebar.markdown("---")
