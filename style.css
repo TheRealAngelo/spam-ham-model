@@ -29,72 +29,66 @@ body, .stApp {
 
 .main-header, .main-title-text {
     font-family: 'Orbitron', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
-    font-size: 3.2rem;
+    font-size: 2.7rem;
     color: #ffe600;
     text-align: center;
     margin-bottom: 2.2rem;
     font-weight: 900;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     text-shadow:
-        0 0 8px #ffe600,
-        0 0 24px #ffe600,
-        2px 2px 0 #ff00cc,
-        -2px -2px 0 #00fff7,
-        0 0 2px #fff;
+        0 2px 24px #ff00cc,
+        0 0px 2px #222,
+        0 0 8px #00fff7,
+        2px 0 #ffe600,
+        -2px 0 #00fff7;
     position: relative;
     z-index: 2;
-    animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both, cyberglitch 2.2s infinite linear alternate-reverse;
+    animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both, glitch 2.2s infinite linear alternate-reverse;
     overflow: visible;
 }
 
-@keyframes cyberglitch {
-    0% { text-shadow:
-        0 0 8px #ffe600,
-        0 0 24px #ffe600,
-        2px 2px 0 #ff00cc,
-        -2px -2px 0 #00fff7,
-        0 0 2px #fff; }
-    10% { text-shadow:
-        2px 0 0 #ffe600,
-        -2px 0 0 #ff00cc,
-        2px 2px 0 #00fff7,
-        0 0 24px #ffe600,
-        0 0 2px #fff; }
-    20% { text-shadow:
-        -2px 0 0 #ffe600,
-        2px 0 0 #ff00cc,
-        -2px -2px 0 #00fff7,
-        0 0 24px #ffe600,
-        0 0 2px #fff; }
-    30% { text-shadow:
-        2px -2px 0 #ffe600,
-        -2px 2px 0 #ff00cc,
-        2px 2px 0 #00fff7,
-        0 0 24px #ffe600,
-        0 0 2px #fff; }
-    40% { text-shadow:
-        -2px 2px 0 #ffe600,
-        2px -2px 0 #ff00cc,
-        -2px -2px 0 #00fff7,
-        0 0 24px #ffe600,
-        0 0 2px #fff; }
-    50% { text-shadow:
-        0 0 8px #ffe600,
-        0 0 24px #ffe600,
-        2px 2px 0 #ff00cc,
-        -2px -2px 0 #00fff7,
-        0 0 2px #fff; }
-    100% { text-shadow:
-        0 0 8px #ffe600,
-        0 0 24px #ffe600,
-        2px 2px 0 #ff00cc,
-        -2px -2px 0 #00fff7,
-        0 0 2px #fff; }
-}
-
-/* Remove pseudo-element multi-line overlays for a cleaner, logo-like glitch */
+/* Multi-layered glitch using pseudo-elements */
 .main-header::before, .main-header::after {
-    display: none !important;
+    content: 'SMS Spam Detector';
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    pointer-events: none;
+    opacity: 0.7;
+}
+.main-header::before {
+    color: #ff00cc;
+    z-index: 1;
+    transform: translate(-2px, -2px);
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    animation: glitchTop 1.2s infinite linear alternate-reverse;
+}
+.main-header::after {
+    color: #00fff7;
+    z-index: 1;
+    transform: translate(2px, 2px);
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitchBot 1.2s infinite linear alternate-reverse;
+}
+@keyframes glitchTop {
+    0% { transform: translate(-2px, -2px); }
+    20% { transform: translate(-4px, 0px); }
+    40% { transform: translate(-2px, 2px); }
+    60% { transform: translate(-6px, -1px); }
+    80% { transform: translate(-2px, -2px); }
+    100% { transform: translate(-2px, 2px); }
+}
+@keyframes glitchBot {
+    0% { transform: translate(2px, 2px); }
+    20% { transform: translate(4px, 0px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(6px, 1px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(2px, -2px); }
 }
 
 /* Add a bright yellow highlight for cyberpunk pop */
