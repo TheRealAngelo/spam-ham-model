@@ -127,7 +127,7 @@ def test_detector():
         "URGENT! You have won a prize. Call 08000123456 now!"
     ]
     
-    print("🧪 Testing SMS Spam Detector")
+    print(" Testing SMS Spam Detector")
     print("=" * 50)
     
     for i, message in enumerate(test_messages, 1):
