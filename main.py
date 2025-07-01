@@ -15,7 +15,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 #CSS
-st.markdown('<href="style.css">', unsafe_allow_html=True)
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 @st.cache_resource
 def load_models():
