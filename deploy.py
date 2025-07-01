@@ -12,18 +12,18 @@ from pathlib import Path
 
 def run_command(command, description):
     """Run a command and handle errors"""
-    print(f"\n🔄 {description}")
+    print(f"\n {description}")
     print(f"Running: {command}")
     
     try:
         result = subprocess.run(command, shell=True, check=True, 
                               capture_output=True, text=True)
-        print(f"✅ {description} completed successfully!")
+        print(f" {description} completed successfully!")
         if result.stdout:
             print(f"Output: {result.stdout}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"❌ {description} failed!")
+        print(f" {description} failed!")
         print(f"Error: {e.stderr}")
         return False
 
@@ -45,7 +45,7 @@ def check_dependencies():
         print(f"❌ Missing required files: {missing_files}")
         return False
     
-    print("✅ All required files found!")
+    print(" All required files found!")
     return True
 
 def install_dependencies():
@@ -56,7 +56,7 @@ def install_dependencies():
             "Installing dependencies"
         )
     else:
-        print("❌ requirements.txt not found!")
+        print(" requirements.txt not found!")
         return False
 
 def train_model():
@@ -75,14 +75,14 @@ def test_model():
 
 def deploy_streamlit():
     """Deploy the Streamlit application"""
-    print("\n🚀 Starting Streamlit application...")
+    print("\n Starting Streamlit application...")
     print("The application will open in your default web browser.")
     print("Press Ctrl+C to stop the application.")
     
     try:
         subprocess.run("streamlit run main.py", shell=True, check=True)
     except KeyboardInterrupt:
-        print("\n👋 Application stopped by user.")
+        print("\n Application stopped by user.")
     except subprocess.CalledProcessError as e:
         print(f"❌ Failed to start Streamlit: {e}")
 
@@ -99,7 +99,7 @@ def main():
     
     args = parser.parse_args()
     
-    print("🎯 SMS Spam Detector Deployment Script")
+    print(" SMS Spam Detector Deployment Script")
     print("=" * 50)
     
     # Check dependencies
@@ -125,7 +125,7 @@ def main():
     # Test model
     if not args.skip_test:
         if not test_model():
-            print("⚠️ Model testing failed, but continuing with deployment.")
+            print(" Model testing failed, but continuing with deployment.")
     
     # Deploy application
     deploy_streamlit()

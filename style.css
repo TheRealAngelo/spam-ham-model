@@ -1,7 +1,6 @@
-/* Import a techy, futuristic font from Google Fonts */
+/* futuristic fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap');
 
-/* Modern, dark chrome-inspired style for SMS Spam Detector */
 body, .stApp {
     min-height: 100vh;
     background: linear-gradient(135deg, #181c20 0%, #23272b 60%, #2c3136 100%);
@@ -160,7 +159,7 @@ body, .stApp {
     box-shadow: 0 4px 24px 0 #00ffe71f, 0 0 12px #00ffe7;
 }
 
-/* Animated floating bubbles background - cyber chrome style */
+/* bubbles background - cyber chrome style */
 .bubbles {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
