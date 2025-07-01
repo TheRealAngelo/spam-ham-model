@@ -24,9 +24,11 @@ for _ in range(num_bubbles):
     size = random.randint(35, 85)
     left = random.randint(5, 90)
     delay = random.uniform(0, 3)
+    duration = random.uniform(3, 10)  
     bubble_html += (
         f'<div class="bubble" '
-        f'style="width:{size}px; height:{size}px; left:{left}vw; animation-delay:{delay:.1f}s;"></div>'
+        f'style="width:{size}px; height:{size}px; left:{left}vw; '
+        f'animation-delay:{delay:.2f}s; animation-duration:{duration:.2f}s;"></div>'
     )
 bubble_html += '</div>'
 
