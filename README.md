@@ -15,16 +15,16 @@ A machine learning-powered SMS spam detection application built with Python, Sci
 
 ```
 spam-ham-model/
-├── main.py              # Streamlit web application
-├── train.py             # Model training script
-├── utils.py             # Utility functions and SpamDetector class
-├── deploy.py            # Deployment automation script
-├── requirements.txt     # Python dependencies
-├── spam.csv            # Training dataset
-├── models/             # Saved model files
+├── main.py           
+├── train.py             
+├── utils.py            
+├── deploy.py            
+├── requirements.txt     
+├── spam.csv            
+├── models/             
 │   ├── spam_detector_model.joblib
 │   └── vectorizer.joblib
-└── README.md           # This file
+└── README.md           
 ```
 
 ##  Quick Start
@@ -75,7 +75,7 @@ This script will:
 - **seaborn** >= 0.12.0 - Statistical plotting
 - **matplotlib** >= 3.7.0 - Basic plotting
 
-## 🤖 Model Details
+##  Model Details
 
 ### Algorithm
 - **Multinomial Naive Bayes**: Excellent for text classification tasks
@@ -94,7 +94,7 @@ Uses the SMS Spam Collection v.1 dataset containing:
 - Binary classification (ham/spam)
 - Real SMS messages in English
 
-## 🎮 How to Use
+##  How to Use
 
 ### Web Interface
 1. Open the Streamlit application in your browser
