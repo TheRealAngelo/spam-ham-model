@@ -54,7 +54,12 @@ def predict_spam(text, model, vectorizer):
 
 def main():
     # Header
-    st.markdown('<h1 class="main-header"> SMS Spam Detector</h1>', unsafe_allow_html=True)
+    st.markdown('''
+    <div class="main-header neon-glow">
+        <span class="main-title-text">SMS Spam Detector</span>
+        <span class="header-bar"></span>
+    </div>
+    ''', unsafe_allow_html=True)
     # Sidebar
     st.sidebar.title(" Controls")
     st.sidebar.markdown("---")
@@ -76,24 +81,7 @@ def main():
         )
         
         # Prediction button
-        analyze_btn_style = """
-        <style>
-        .stButton > button.analyze-btn {
-            font-size: 0.9rem !important;
-            padding: 0.4rem 1.2rem !important;
-            min-height: 32px !important;
-            min-width: 120px !important;
-        }
-        </style>
-        """
-        st.markdown(analyze_btn_style, unsafe_allow_html=True)
-        analyze_btn = st.button(
-            " Analyze Message",
-            type="primary",
-            use_container_width=True,
-            key="analyze_btn"
-        )
-        if analyze_btn:
+        if st.button(" Analyze Message", type="primary", use_container_width=True):
             if message.strip():
                 with st.spinner("Analyzing message..."):
                     prediction, probabilities = predict_spam(message, model, vectorizer)
