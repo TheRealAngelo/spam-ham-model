@@ -17,88 +17,18 @@ body, .stApp {
     100% {background-position: 0% 50%;}
 }
 
-/* Glitch effect for cyberpunk header */
-@keyframes glitch {
-    0% { text-shadow: 2px 0 #ff00cc, -2px 0 #00fff7, 0 2px #ffe600, 0 -2px #ffe600; }
-    20% { text-shadow: -2px 0 #ff00cc, 2px 0 #00fff7, 0 -2px #ffe600, 0 2px #ffe600; }
-    40% { text-shadow: 2px 2px #ff00cc, -2px -2px #00fff7, 2px -2px #ffe600, -2px 2px #ffe600; }
-    60% { text-shadow: -2px 2px #ff00cc, 2px -2px #00fff7, -2px -2px #ffe600, 2px 2px #ffe600; }
-    80% { text-shadow: 2px 0 #ff00cc, -2px 0 #00fff7, 0 2px #ffe600, 0 -2px #ffe600; }
-    100% { text-shadow: 0 0 24px #ff00cc, 0 0 8px #00fff7, 0 0 12px #ffe600; }
-}
-
 .main-header, .main-title-text {
     font-family: 'Orbitron', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
     font-size: 2.7rem;
-    color: #ffe600;
+    color: #ff00cc;
     text-align: center;
     margin-bottom: 2.2rem;
     font-weight: 900;
     letter-spacing: 2px;
-    text-shadow:
-        0 2px 24px #ff00cc,
-        0 0px 2px #222,
-        0 0 8px #00fff7,
-        2px 0 #ffe600,
-        -2px 0 #00fff7;
+    text-shadow: 0 2px 24px #ff00cc, 0 0px 2px #222, 0 0 8px #00fff7;
     position: relative;
     z-index: 2;
-    animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both, glitch 2.2s infinite linear alternate-reverse;
-    overflow: visible;
-}
-
-/* Multi-layered glitch using pseudo-elements */
-.main-header::before, .main-header::after {
-    content: 'SMS Spam Detector';
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    letter-spacing: inherit;
-    pointer-events: none;
-    opacity: 0.7;
-}
-.main-header::before {
-    color: #ff00cc;
-    z-index: 1;
-    transform: translate(-2px, -2px);
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-    animation: glitchTop 1.2s infinite linear alternate-reverse;
-}
-.main-header::after {
-    color: #00fff7;
-    z-index: 1;
-    transform: translate(2px, 2px);
-    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-    animation: glitchBot 1.2s infinite linear alternate-reverse;
-}
-@keyframes glitchTop {
-    0% { transform: translate(-2px, -2px); }
-    20% { transform: translate(-4px, 0px); }
-    40% { transform: translate(-2px, 2px); }
-    60% { transform: translate(-6px, -1px); }
-    80% { transform: translate(-2px, -2px); }
-    100% { transform: translate(-2px, 2px); }
-}
-@keyframes glitchBot {
-    0% { transform: translate(2px, 2px); }
-    20% { transform: translate(4px, 0px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(6px, 1px); }
-    80% { transform: translate(2px, 2px); }
-    100% { transform: translate(2px, -2px); }
-}
-
-/* Add a bright yellow highlight for cyberpunk pop */
-.main-header {
-    background: linear-gradient(90deg, #ffe600 0%, #ff00cc 50%, #00fff7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    filter: drop-shadow(0 0 8px #ffe600) drop-shadow(0 0 16px #ff00cc);
+    animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
 }
 
 .neon-glow {
@@ -109,8 +39,7 @@ body, .stApp {
     font-size: 2.2rem;
     margin-right: 0.7rem;
     vertical-align: middle;
-    color: #ffe600;
-    text-shadow: 0 0 12px #ffe600, 0 0 24px #ff00cc;
+    color: #00fff7;
     filter: drop-shadow(0 0 12px #00fff7);
     animation: pulseIcon 2.5s infinite alternate;
 }
@@ -125,8 +54,8 @@ body, .stApp {
     width: 220px;
     height: 6px;
     border-radius: 4px;
-    background: linear-gradient(90deg, #ff00cc 0%, #ffe600 50%, #00fff7 100%);
-    box-shadow: 0 0 32px 8px #ff00cccc, 0 0 8px 2px #ffe60099, 0 0 8px 2px #00fff799;
+    background: linear-gradient(90deg, #ff00cc 0%, #00fff7 100%);
+    box-shadow: 0 0 32px 8px #ff00cccc, 0 0 8px 2px #00fff799;
     animation: barGlow 2.5s infinite alternate;
 }
 @keyframes barGlow {
