@@ -43,46 +43,7 @@ def predict_spam(text, model, vectorizer):
     
     return prediction, probability
 
-# Theme CSS for dynamic injection
-theme_css = {
-    "Light": """
-        body, .stApp { background: #f7f7f9 !important; color: #222 !important; }
-        .main-header { color: #1f77b4; }
-        .prediction-box { background: #fff; color: #222; border: 2px solid #e0e0e0; }
-        .spam-box { background: #ffebee; color: #c62828; border: 2px solid #e57373; }
-        .ham-box { background: #e8f5e8; color: #2e7d32; border: 2px solid #81c784; }
-        .info-box { background: #f0f2f6; color: #222; border-left: 5px solid #1f77b4; }
-        .stButton>button { background: #1f77b4; color: #fff; }
-    """,
-    "Dark": """
-        body, .stApp { background: #181a1b !important; color: #f7f7f9 !important; }
-        .main-header { color: #e53935; }
-        .prediction-box { background: #23272b; color: #f7f7f9; border: 2px solid #333; }
-        .spam-box { background: #2d0909; color: #ff5252; border: 2px solid #e53935; }
-        .ham-box { background: #0e2d1c; color: #81c784; border: 2px solid #388e3c; }
-        .info-box { background: #23272b; color: #f7f7f9; border-left: 5px solid #e53935; }
-        .stButton>button { background: #e53935; color: #fff; }
-    """,
-    "Red": """
-        body, .stApp { background: #fff5f5 !important; color: #b71c1c !important; }
-        .main-header { color: #b71c1c; }
-        .prediction-box { background: #fff0f0; color: #b71c1c; border: 2px solid #e57373; }
-        .spam-box { background: #ffebee; color: #c62828; border: 2px solid #e57373; }
-        .ham-box { background: #fce4ec; color: #ad1457; border: 2px solid #f06292; }
-        .info-box { background: #f8bbd0; color: #b71c1c; border-left: 5px solid #b71c1c; }
-        .stButton>button { background: #b71c1c; color: #fff; }
-    """,
-}
-
 def main():
-    # Sidebar theme switcher
-    st.sidebar.title(" Controls")
-    theme = st.sidebar.selectbox("Choose Theme", ["Light", "Dark", "Red"], index=0)
-    st.sidebar.markdown("---")
-
-    # Inject theme CSS
-    st.markdown(f"<style>{theme_css[theme]}</style>", unsafe_allow_html=True)
-
     # Header
     st.markdown('<h1 class="main-header"> SMS Spam Detector</h1>', unsafe_allow_html=True)
     
