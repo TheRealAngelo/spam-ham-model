@@ -1,0 +1,62 @@
+[global]
+
+# If false, the file watcher will not watch files.
+developmentMode = false
+
+[logger]
+
+# Level of logging: 'error', 'warning', 'info', or 'debug'.
+level = "info"
+
+[client]
+
+# Whether to enable st.cache.
+caching = true
+
+# If false, makes the sidebar navigation hide by default.
+showSidebarNavigation = true
+
+[browser]
+
+# Internet address where users should point their browsers in order to
+# connect to the app. Can be IP address or DNS name and path.
+serverAddress = "localhost"
+
+# Port where users can connect to the app.
+serverPort = 8501
+
+# Whether to send usage statistics to Streamlit.
+gatherUsageStats = false
+
+[server]
+
+# List of folders that should not be watched for changes. This
+# impacts both "Run on Save" and @st.cache.
+folderWatchBlacklist = ['models', '__pycache__']
+
+# Change the type of file watcher used by Streamlit, or turn it off
+# completely.
+fileWatcherType = "auto"
+
+# Symmetric key used to produce signed cookies. If deploying on multiple replicas,
+# ensure that this is set to the same value across all replicas to ensure they all
+# share the same secret.
+cookieSecret = "spam-detector-secret-key"
+
+# If false, will attempt to open a browser window on start.
+headless = false
+
+# Automatically rerun script when the file is modified on disk.
+runOnSave = true
+
+# The address where the server will listen for client and browser connections.
+address = "localhost"
+
+# The port where the server will listen for client and browser connections.
+port = 8501
+
+# Enables support for Cross-Origin Request Sharing (CORS) protection, for added security.
+enableCORS = false
+
+# Enables support for Cross-Site Request Forgery (CSRF) protection, for added security.
+enableXsrfProtection = true
