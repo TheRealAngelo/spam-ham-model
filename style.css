@@ -1,7 +1,6 @@
 /* futuristic fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap');
 
-/* CYBERPUNK THEME */
 body, .stApp {
     min-height: 100vh;
     background: linear-gradient(135deg, #1a0033 0%, #0f0c29 40%, #302b63 80%, #ff0080 100%);
@@ -174,7 +173,7 @@ body, .stApp {
     box-shadow: 0 4px 24px 0 #00fff733;
 }
 
-/* bubbles background - cyber chrome style */
+/* bubbles background - chrome style */
 .bubbles {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
