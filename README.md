@@ -233,7 +233,8 @@ If you encounter any issues or have questions:
 2. Search existing issues on GitHub
 3. Create a new issue with detailed information
 
-##  Troubleshooting
+##  Visit Streamlit site
+https://spam-ham-model-wjyzirq4atcjmrvdyj8zby.streamlit.app/
 
 ### Common Issues
 
