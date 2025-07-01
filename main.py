@@ -24,6 +24,11 @@ st.markdown('''
   <div class="bubble" style="width:80px; height:80px; left:50vw; animation-delay:4s;"></div>
   <div class="bubble" style="width:50px; height:50px; left:70vw; animation-delay:1s;"></div>
   <div class="bubble" style="width:70px; height:70px; left:85vw; animation-delay:3s;"></div>
+  <div class="bubble" style="width:60px; height:60px; left:10vw; animation-delay:0s;"></div>
+  <div class="bubble" style="width:40px; height:40px; left:30vw; animation-delay:2s;"></div>
+  <div class="bubble" style="width:80px; height:80px; left:50vw; animation-delay:4s;"></div>
+  <div class="bubble" style="width:50px; height:50px; left:70vw; animation-delay:1s;"></div>
+  <div class="bubble" style="width:70px; height:70px; left:85vw; animation-delay:3s;"></div>
 </div>
 ''', unsafe_allow_html=True)
 
@@ -37,38 +42,30 @@ def load_models():
     except FileNotFoundError:
         st.error("Model files not found! Please run train.py first to train the model.")
         st.stop()
-
+#dont touch ty :)))
 def predict_spam(text, model, vectorizer):
     """Predict if a text message is spam or ham"""
-    # Preprocess the text (same as training)
+    # Preprocess
     text = text.lower()
-    
     # Vectorize the text
     text_vec = vectorizer.transform([text])
-    
     # Make prediction
     prediction = model.predict(text_vec)[0]
     probability = model.predict_proba(text_vec)[0]
-    
     return prediction, probability
 
 def main():
     # Header
     st.markdown('<h1 class="main-header"> SMS Spam Detector</h1>', unsafe_allow_html=True)
-    
     # Sidebar
     st.sidebar.title(" Controls")
     st.sidebar.markdown("---")
-    
     # Load models
     with st.spinner("Loading models..."):
         model, vectorizer = load_models()
-    
     st.sidebar.success(" Models loaded successfully!")
-    
     # Main content
     col1, col2 = st.columns([2, 1])
-    
     with col1:
         st.header(" Analyze Your Message")
         
@@ -104,7 +101,6 @@ def main():
                     
                     # Probability visualization
                     col_prob1, col_prob2 = st.columns(2)
-                    
                     with col_prob1:
                         # Probability bars
                         prob_df = pd.DataFrame({
@@ -112,7 +108,6 @@ def main():
                             'Probability': [probabilities[0], probabilities[1]],
                             'Color': ['#2e7d32', '#c62828']
                         })
-                        
                         fig = px.bar(
                             prob_df, 
                             x='Category', 
@@ -124,11 +119,9 @@ def main():
                         fig.update_layout(showlegend=False, height=400)
                         fig.update_yaxes(range=[0, 1])
                         st.plotly_chart(fig, use_container_width=True)
-                    
                     with col_prob2:
                         # chart
                         spam_prob = probabilities[1] * 100
-                        
                         fig = go.Figure(go.Indicator(
                             mode = "gauge+number+delta",
                             value = spam_prob,
