@@ -6,7 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 import os
-st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
+
 
 # Page configuration
 st.set_page_config(
@@ -14,7 +14,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
+st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
 @st.cache_resource
 def load_models():
     """Load the trained model and vectorizer"""
