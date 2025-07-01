@@ -178,7 +178,7 @@ def main():
         st.header(" Information")
         
         st.markdown("""
-        <div class="info-box" style="color: black;">
+        <div class="info-box" style="color: white;">
         <h4> How it works:</h4>
         <ul>
         <li>Enter your SMS message in the text area</li>
