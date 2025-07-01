@@ -17,10 +17,20 @@ body, .stApp {
     100% {background-position: 0% 50%;}
 }
 
+/* Glitch effect for cyberpunk header */
+@keyframes glitch {
+    0% { text-shadow: 2px 0 #ff00cc, -2px 0 #00fff7, 0 2px #ffe600, 0 -2px #ffe600; }
+    20% { text-shadow: -2px 0 #ff00cc, 2px 0 #00fff7, 0 -2px #ffe600, 0 2px #ffe600; }
+    40% { text-shadow: 2px 2px #ff00cc, -2px -2px #00fff7, 2px -2px #ffe600, -2px 2px #ffe600; }
+    60% { text-shadow: -2px 2px #ff00cc, 2px -2px #00fff7, -2px -2px #ffe600, 2px 2px #ffe600; }
+    80% { text-shadow: 2px 0 #ff00cc, -2px 0 #00fff7, 0 2px #ffe600, 0 -2px #ffe600; }
+    100% { text-shadow: 0 0 24px #ff00cc, 0 0 8px #00fff7, 0 0 12px #ffe600; }
+}
+
 .main-header, .main-title-text {
     font-family: 'Orbitron', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
     font-size: 2.7rem;
-    color: #ff00cc;
+    color: #ffe600;
     text-align: center;
     margin-bottom: 2.2rem;
     font-weight: 900;
@@ -28,7 +38,7 @@ body, .stApp {
     text-shadow: 0 2px 24px #ff00cc, 0 0px 2px #222, 0 0 8px #00fff7;
     position: relative;
     z-index: 2;
-    animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
+    animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both, glitch 2.2s infinite linear alternate-reverse;
 }
 
 .neon-glow {
@@ -39,7 +49,8 @@ body, .stApp {
     font-size: 2.2rem;
     margin-right: 0.7rem;
     vertical-align: middle;
-    color: #00fff7;
+    color: #ffe600;
+    text-shadow: 0 0 12px #ffe600, 0 0 24px #ff00cc;
     filter: drop-shadow(0 0 12px #00fff7);
     animation: pulseIcon 2.5s infinite alternate;
 }
@@ -54,8 +65,8 @@ body, .stApp {
     width: 220px;
     height: 6px;
     border-radius: 4px;
-    background: linear-gradient(90deg, #ff00cc 0%, #00fff7 100%);
-    box-shadow: 0 0 32px 8px #ff00cccc, 0 0 8px 2px #00fff799;
+    background: linear-gradient(90deg, #ff00cc 0%, #ffe600 50%, #00fff7 100%);
+    box-shadow: 0 0 32px 8px #ff00cccc, 0 0 8px 2px #ffe60099, 0 0 8px 2px #00fff799;
     animation: barGlow 2.5s infinite alternate;
 }
 @keyframes barGlow {
@@ -201,4 +212,17 @@ body, .stApp {
 @media (max-width: 900px) {
     .main-header { font-size: 2.2rem; }
     .prediction-box { font-size: 1.1rem; }
+}
+
+/* Add a glitch pseudo-element for extra effect */
+.main-header::after {
+    content: 'SMS Spam Detector';
+    position: absolute;
+    left: 2px; top: 2px;
+    color: #ff00cc;
+    opacity: 0.7;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+    animation: glitch 1.5s infinite linear alternate-reverse;
+    pointer-events: none;
 }
