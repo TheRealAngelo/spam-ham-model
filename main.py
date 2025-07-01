@@ -233,122 +233,64 @@ def predict_spam(text, model, vectorizer):
     return prediction, probability
 
 def main():
-    # Modern Header with gradient
-    st.markdown('''
-    <div style="text-align: center; padding: 2rem 0;">
-        <h1 class="main-header">🛡️ SMS Guardian AI</h1>
-        <p class="subtitle">Advanced Machine Learning-Powered SMS Spam Detection</p>
-    </div>
-    ''', unsafe_allow_html=True)
+    # Header
+    st.markdown('<h1 class="main-header"> SMS Spam Detector</h1>', unsafe_allow_html=True)
     
-    # Sidebar with modern styling
-    with st.sidebar:
-        st.markdown("""
-        <div style="text-align: center; padding: 1rem 0;">
-            <h2 style="color: #667eea; font-weight: 600;">🎛️ Control Panel</h2>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Load models with modern spinner
-        with st.spinner("🚀 Loading AI Models..."):
-            model, vectorizer = load_models()
-        
-        st.success("✅ Models loaded successfully!")
-        
-        # Model stats in sidebar
-        st.markdown("""
-        <div class="info-card">
-            <h4 style="margin-bottom: 1rem; color: #374151;">📊 Model Statistics</h4>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="font-weight: 500;">Algorithm:</span>
-                <span style="color: #667eea;">Naive Bayes</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="font-weight: 500;">Accuracy:</span>
-                <span style="color: #16a34a;">98.2%</span>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-                <span style="font-weight: 500;">Features:</span>
-                <span style="color: #667eea;">Text Vectors</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+    # Sidebar
+    st.sidebar.title(" Controls")
+    st.sidebar.markdown("---")
     
-    # Main content with modern layout
-    col1, col2 = st.columns([2.5, 1.5], gap="large")
+    # Load models
+    with st.spinner("Loading models..."):
+        model, vectorizer = load_models()
+    
+    st.sidebar.success(" Models loaded successfully!")
+    
+    # Main content
+    col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.markdown("""
-        <div class="analysis-card">
-            <h2 style="color: #374151; font-weight: 600; margin-bottom: 1.5rem;">
-                📝 Message Analysis Center
-            </h2>
-        """, unsafe_allow_html=True)
+        st.header(" Analyze Your Message")
         
-        # Modern text input
+        # Text input
         message = st.text_area(
-            "✍️ Enter your SMS message:",
-            placeholder="Type or paste your message here for instant AI analysis...",
-            height=120,
-            help="Our AI will analyze the message and determine if it's spam or legitimate.",
-            key="message_input"
+            "Enter your SMS message:",
+            placeholder="Type your message here...",
+            height=150,
+            help="Enter the SMS message you want to analyze for spam detection."
         )
         
-        # Modern analyze button
-        col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
-        with col_btn2:
-            analyze_btn = st.button(
-                "� Analyze with AI", 
-                type="primary", 
-                use_container_width=True,
-                key="analyze_button"
-            )
-        
-        if analyze_btn:
+        # Prediction button
+        if st.button("🚀 Analyze Message", type="primary", use_container_width=True):
             if message.strip():
-                with st.spinner("🤖 AI is analyzing your message..."):
+                with st.spinner("Analyzing message..."):
                     prediction, probabilities = predict_spam(message, model, vectorizer)
                     
-                    # Modern results section
-                    st.markdown("</div>", unsafe_allow_html=True)  # Close analysis card
+                    # Display results
+                    st.markdown("---")
+                    st.subheader(" Analysis Results")
                     
-                    # Results header
-                    st.markdown("""
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <h2 style="color: #374151; font-weight: 600;">🎯 Analysis Results</h2>
-                    </div>
-                    """, unsafe_allow_html=True)
-                    
-                    # Prediction result with modern styling
+                    # Prediction result
                     if prediction == 'spam':
-                        st.markdown("""
-                        <div class="prediction-box spam-box">
-                            🚨 SPAM DETECTED!
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem; font-weight: 400;">
-                                This message appears to be spam
-                            </div>
-                        </div>
-                        """, unsafe_allow_html=True)
+                        st.markdown(
+                            f'<div class="prediction-box spam-box"> SPAM DETECTED!</div>',
+                            unsafe_allow_html=True
+                        )
                     else:
-                        st.markdown("""
-                        <div class="prediction-box ham-box">
-                            ✅ LEGITIMATE MESSAGE
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem; font-weight: 400;">
-                                This message appears to be safe
-                            </div>
-                        </div>
-                        """, unsafe_allow_html=True)
+                        st.markdown(
+                            f'<div class="prediction-box ham-box"> LEGITIMATE MESSAGE</div>',
+                            unsafe_allow_html=True
+                        )
                     
-                    # Modern probability visualization
-                    col_prob1, col_prob2 = st.columns(2, gap="large")
+                    # Probability visualization
+                    col_prob1, col_prob2 = st.columns(2)
                     
                     with col_prob1:
-                        st.markdown("### 📊 Probability Distribution")
-                        # Enhanced probability bars
+                        # Probability bars
                         prob_df = pd.DataFrame({
-                            'Category': ['Legitimate', 'Spam'],
+                            'Category': ['Ham (Legitimate)', 'Spam'],
                             'Probability': [probabilities[0], probabilities[1]],
-                            'Color': ['#16a34a', '#dc2626']
+                            'Color': ['#2e7d32', '#c62828']
                         })
                         
                         fig = px.bar(
@@ -356,136 +298,104 @@ def main():
                             x='Category', 
                             y='Probability',
                             color='Color',
-                            color_discrete_map={'#16a34a': '#16a34a', '#dc2626': '#dc2626'},
-                            title="AI Confidence Levels"
+                            color_discrete_map={'#2e7d32': '#2e7d32', '#c62828': '#c62828'},
+                            title="Prediction Probabilities"
                         )
-                        fig.update_layout(
-                            showlegend=False, 
-                            height=400,
-                            plot_bgcolor='rgba(0,0,0,0)',
-                            paper_bgcolor='rgba(0,0,0,0)',
-                            font=dict(family="Inter", size=12),
-                            title_font_size=16
-                        )
-                        fig.update_xaxes(gridcolor='rgba(0,0,0,0.1)')
-                        fig.update_yaxes(range=[0, 1], gridcolor='rgba(0,0,0,0.1)')
+                        fig.update_layout(showlegend=False, height=400)
+                        fig.update_yaxes(range=[0, 1])
                         st.plotly_chart(fig, use_container_width=True)
                     
                     with col_prob2:
-                        st.markdown("### 🎯 Spam Risk Meter")
-                        # Enhanced gauge chart
+                        # Gauge chart
                         spam_prob = probabilities[1] * 100
                         
                         fig = go.Figure(go.Indicator(
                             mode = "gauge+number+delta",
                             value = spam_prob,
                             domain = {'x': [0, 1], 'y': [0, 1]},
-                            title = {'text': "Risk Level (%)", 'font': {'size': 16, 'family': 'Inter'}},
+                            title = {'text': "Spam Probability (%)"},
                             delta = {'reference': 50},
                             gauge = {
-                                'axis': {'range': [None, 100], 'tickfont': {'size': 12}},
-                                'bar': {'color': "#667eea", 'thickness': 0.3},
+                                'axis': {'range': [None, 100]},
+                                'bar': {'color': "darkblue"},
                                 'steps': [
-                                    {'range': [0, 25], 'color': "#dcfce7"},
-                                    {'range': [25, 50], 'color': "#fef3c7"},
-                                    {'range': [50, 75], 'color': "#fed7aa"},
-                                    {'range': [75, 100], 'color': "#fecaca"}
+                                    {'range': [0, 25], 'color': "lightgreen"},
+                                    {'range': [25, 50], 'color': "yellow"},
+                                    {'range': [50, 75], 'color': "orange"},
+                                    {'range': [75, 100], 'color': "red"}
                                 ],
                                 'threshold': {
-                                    'line': {'color': "#dc2626", 'width': 4},
+                                    'line': {'color': "red", 'width': 4},
                                     'thickness': 0.75,
-                                    'value': 80
+                                    'value': 90
                                 }
                             }
                         ))
-                        fig.update_layout(
-                            height=400,
-                            paper_bgcolor='rgba(0,0,0,0)',
-                            font=dict(family="Inter")
-                        )
+                        fig.update_layout(height=400)
                         st.plotly_chart(fig, use_container_width=True)
                     
-                    # Enhanced detailed metrics
-                    st.markdown("### 📈 Detailed Analysis")
-                    metric_col1, metric_col2 = st.columns(2)
+                    # Detailed probabilities
+                    st.markdown("###  Detailed Probabilities")
+                    prob_col1, prob_col2 = st.columns(2)
                     
-                    with metric_col1:
-                        confidence_ham = probabilities[0] * 100
+                    with prob_col1:
                         st.metric(
-                            label="✅ Legitimate Confidence",
-                            value=f"{confidence_ham:.1f}%",
-                            delta=f"{confidence_ham - 50:.1f}%" if confidence_ham > 50 else None
+                            label="Ham (Legitimate)",
+                            value=f"{probabilities[0]:.4f}",
+                            delta=f"{(probabilities[0] - 0.5):.4f}"
                         )
                     
-                    with metric_col2:
-                        confidence_spam = probabilities[1] * 100
+                    with prob_col2:
                         st.metric(
-                            label="🚨 Spam Confidence", 
-                            value=f"{confidence_spam:.1f}%",
-                            delta=f"{confidence_spam - 50:.1f}%" if confidence_spam > 50 else None
+                            label="Spam",
+                            value=f"{probabilities[1]:.4f}",
+                            delta=f"{(probabilities[1] - 0.5):.4f}"
                         )
             else:
-                st.warning("⚠️ Please enter a message to analyze.")
-        else:
-            st.markdown("</div>", unsafe_allow_html=True)  # Close analysis card if no analysis
+                st.warning(" Please enter a message to analyze.")
     
     with col2:
+        st.header(" Information")
+        
         st.markdown("""
-        <div class="info-card">
-            <h3 style="color: #374151; margin-bottom: 1rem;">ℹ️ How It Works</h3>
-            <div style="color: #6b7280; line-height: 1.6;">
-                <p><strong>1.</strong> Enter your SMS message</p>
-                <p><strong>2.</strong> AI analyzes text patterns</p>
-                <p><strong>3.</strong> Get instant results with confidence scores</p>
-                <p><strong>4.</strong> Make informed decisions about your messages</p>
-            </div>
+        <div class="info-box" style="color: black;">
+        <h4> How it works:</h4>
+        <ul>
+        <li>Enter your SMS message in the text area</li>
+        <li>Click "Analyze Message" to get predictions</li>
+        <li>View the results with probability scores</li>
+        </ul>
         </div>
         """, unsafe_allow_html=True)
         
-        # Example messages with modern styling
-        st.markdown("""
-        <div class="info-card">
-            <h3 style="color: #374151; margin-bottom: 1rem;">💡 Try These Examples</h3>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("---")
         
-        # Example buttons with modern styling
-        example_spam = "🎉 CONGRATULATIONS! You've WON $5000 CASH! Call 555-SCAM NOW to claim your FREE prize! Limited time offer!"
-        example_ham = "Hey! Just wanted to confirm our meeting tomorrow at 3 PM. Should I bring the documents?"
+        # Model information
+        st.subheader(" Model Information")
+        st.info("""
+        **Algorithm:** Multinomial Naive Bayes  
+        **Features:** Count Vectorization  
+        **Training Data:** SMS Spam Collection Dataset  
+        """)
         
-        col_ex1, col_ex2 = st.columns(2)
-        with col_ex1:
-            if st.button("🚨 Spam Example", use_container_width=True, key="spam_ex"):
-                st.session_state.message_input = example_spam
-                st.rerun()
+        # Example messages
+        st.subheader(" Try These Examples")
         
-        with col_ex2:
-            if st.button("✅ Safe Example", use_container_width=True, key="ham_ex"):
-                st.session_state.message_input = example_ham
-                st.rerun()
+        example_spam = "Congratulations! You've won $1000! Call now to claim your prize!"
+        example_ham = "Hey, are we still meeting for lunch today?"
         
-        # Additional info
-        st.markdown("""
-        <div class="info-card">
-            <h4 style="color: #374151; margin-bottom: 0.5rem;">🔬 Technology Stack</h4>
-            <div style="color: #6b7280; font-size: 0.9rem;">
-                <p>• <strong>Machine Learning:</strong> Scikit-learn</p>
-                <p>• <strong>Algorithm:</strong> Multinomial Naive Bayes</p>
-                <p>• <strong>Feature Engineering:</strong> Count Vectorization</p>
-                <p>• <strong>Dataset:</strong> SMS Spam Collection</p>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        if st.button(" Example Spam", use_container_width=True):
+            st.text_area("Example message:", value=example_spam, key="example_spam", height=100)
+        
+        if st.button(" Example Ham", use_container_width=True):
+            st.text_area("Example message:", value=example_ham, key="example_ham", height=100)
     
-    # Modern footer
+    # Footer
+    st.markdown("---")
     st.markdown("""
-    <div class="footer">
-        <h4 style="margin-bottom: 1rem; color: #374151;">🛡️ SMS Guardian AI</h4>
-        <p style="margin-bottom: 0.5rem;">Created with ❤️ by <strong>Angelo Morales</strong></p>
-        <p style="margin-bottom: 1rem;">Powered by Advanced Machine Learning & Streamlit</p>
-        <div style="font-size: 0.8rem; color: #9ca3af;">
-            © 2025 SMS Guardian AI • Protecting your digital communication
-        </div>
+    <div style='text-align: center; color: #666; padding: 2rem;'>
+        <p>By: Angelo Morales © 2025</p>
+        <p>Built with Streamlit • Powered by Machine Learning</p>
     </div>
     """, unsafe_allow_html=True)
 
