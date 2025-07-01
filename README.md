@@ -167,32 +167,6 @@ The training script provides comprehensive evaluation metrics:
 streamlit run main.py
 ```
 
-### Cloud Deployment
-
-**Streamlit Cloud:**
-1. Push your code to GitHub
-2. Connect your repository to Streamlit Cloud
-3. Deploy with one click
-
-**Heroku:**
-1. Create a `Procfile`:
-   ```
-   web: streamlit run main.py --server.port=$PORT --server.address=0.0.0.0
-   ```
-2. Deploy using Heroku CLI
-
-**Docker:**
-1. Create a `Dockerfile`:
-   ```dockerfile
-   FROM python:3.9-slim
-   WORKDIR /app
-   COPY . .
-   RUN pip install -r requirements.txt
-   EXPOSE 8501
-   CMD ["streamlit", "run", "main.py"]
-   ```
-2. Build and run the container
-
 ## Command Line Options
 
 The deployment script supports various options:
