@@ -42,7 +42,7 @@ def check_dependencies():
             missing_files.append(file)
     
     if missing_files:
-        print(f"❌ Missing required files: {missing_files}")
+        print(f"Missing required files: {missing_files}")
         return False
     
     print(" All required files found!")
@@ -84,7 +84,7 @@ def deploy_streamlit():
     except KeyboardInterrupt:
         print("\n Application stopped by user.")
     except subprocess.CalledProcessError as e:
-        print(f"❌ Failed to start Streamlit: {e}")
+        print(f" Failed to start Streamlit: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description='Deploy SMS Spam Detector')
@@ -113,13 +113,13 @@ def main():
     # Install dependencies
     if not args.skip_install:
         if not install_dependencies():
-            print("❌ Dependency installation failed. Exiting.")
+            print(" Dependency installation failed. Exiting.")
             return
     
     # Train model
     if not args.skip_train:
         if not train_model():
-            print("❌ Model training failed. Exiting.")
+            print(" Model training failed. Exiting.")
             return
     
     # Test model
