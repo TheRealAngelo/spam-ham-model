@@ -19,7 +19,8 @@ st.set_page_config(
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 bubble_html = '<div class="bubbles">'
-for _ in range(10):
+num_bubbles = 5
+for _ in range(num_bubbles):
     size = random.randint(35, 85)
     left = random.randint(5, 90)
     delay = random.uniform(0, 6)
