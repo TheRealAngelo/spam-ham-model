@@ -59,7 +59,7 @@ def load_models():
         vectorizer = joblib.load('models/vectorizer.joblib')
         return model, vectorizer
     except FileNotFoundError:
-        st.error("❌ Model files not found! Please run train.py first to train the model.")
+        st.error("Model files not found! Please run train.py first to train the model.")
         st.stop()
 
 def predict_spam(text, model, vectorizer):
@@ -78,23 +78,23 @@ def predict_spam(text, model, vectorizer):
 
 def main():
     # Header
-    st.markdown('<h1 class="main-header">📱 SMS Spam Detector</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header"> SMS Spam Detector</h1>', unsafe_allow_html=True)
     
     # Sidebar
-    st.sidebar.title("🔧 Controls")
+    st.sidebar.title(" Controls")
     st.sidebar.markdown("---")
     
     # Load models
     with st.spinner("Loading models..."):
         model, vectorizer = load_models()
     
-    st.sidebar.success("✅ Models loaded successfully!")
+    st.sidebar.success(" Models loaded successfully!")
     
     # Main content
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.header("🔍 Analyze Your Message")
+        st.header(" Analyze Your Message")
         
         # Text input
         message = st.text_area(
@@ -112,17 +112,17 @@ def main():
                     
                     # Display results
                     st.markdown("---")
-                    st.subheader("📊 Analysis Results")
+                    st.subheader(" Analysis Results")
                     
                     # Prediction result
                     if prediction == 'spam':
                         st.markdown(
-                            f'<div class="prediction-box spam-box">🚨 SPAM DETECTED!</div>',
+                            f'<div class="prediction-box spam-box"> SPAM DETECTED!</div>',
                             unsafe_allow_html=True
                         )
                     else:
                         st.markdown(
-                            f'<div class="prediction-box ham-box">✅ LEGITIMATE MESSAGE</div>',
+                            f'<div class="prediction-box ham-box"> LEGITIMATE MESSAGE</div>',
                             unsafe_allow_html=True
                         )
                     
@@ -196,7 +196,7 @@ def main():
                             delta=f"{(probabilities[1] - 0.5):.4f}"
                         )
             else:
-                st.warning("⚠️ Please enter a message to analyze.")
+                st.warning(" Please enter a message to analyze.")
     
     with col2:
         st.header("📋 Information")
@@ -215,7 +215,7 @@ def main():
         st.markdown("---")
         
         # Model information
-        st.subheader("🤖 Model Information")
+        st.subheader(" Model Information")
         st.info("""
         **Algorithm:** Multinomial Naive Bayes  
         **Features:** Count Vectorization  
@@ -223,22 +223,22 @@ def main():
         """)
         
         # Example messages
-        st.subheader("💡 Try These Examples")
+        st.subheader(" Try These Examples")
         
         example_spam = "Congratulations! You've won $1000! Call now to claim your prize!"
         example_ham = "Hey, are we still meeting for lunch today?"
         
-        if st.button("📧 Example Spam", use_container_width=True):
+        if st.button(" Example Spam", use_container_width=True):
             st.text_area("Example message:", value=example_spam, key="example_spam", height=100)
         
-        if st.button("✉️ Example Ham", use_container_width=True):
+        if st.button(" Example Ham", use_container_width=True):
             st.text_area("Example message:", value=example_ham, key="example_ham", height=100)
     
     # Footer
     st.markdown("---")
     st.markdown("""
     <div style='text-align: center; color: #666; padding: 2rem;'>
-        <p>🔒 Your messages are processed locally and not stored anywhere.</p>
+        <p>Your messages are processed locally and not stored anywhere.</p>
         <p>Built with Streamlit • Powered by Machine Learning</p>
     </div>
     """, unsafe_allow_html=True)
