@@ -6,6 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 import os
+st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
 
 # Page configuration
 st.set_page_config(
@@ -13,41 +14,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-#CSS
-st.markdown("""
-<style>
-    .main-header {
-        font-size: 3rem;
-        color: #1f77b4;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    .prediction-box {
-        padding: 1rem;
-        border-radius: 10px;
-        margin: 1rem 0;
-        text-align: center;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    .spam-box {
-        background-color: #ffebee;
-        color: #c62828;
-        border: 2px solid #e57373;
-    }
-    .ham-box {
-        background-color: #e8f5e8;
-        color: #2e7d32;
-        border: 2px solid #81c784;
-    }
-    .info-box {
-        background-color: #f0f2f6;
-        padding: 1rem;
-        border-radius: 5px;
-        border-left: 5px solid #1f77b4;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 @st.cache_resource
 def load_models():
@@ -103,7 +69,7 @@ def main():
         )
         
         # Prediction button
-        if st.button("🚀 Analyze Message", type="primary", use_container_width=True):
+        if st.button(" Analyze Message", type="primary", use_container_width=True):
             if message.strip():
                 with st.spinner("Analyzing message..."):
                     prediction, probabilities = predict_spam(message, model, vectorizer)
@@ -148,7 +114,7 @@ def main():
                         st.plotly_chart(fig, use_container_width=True)
                     
                     with col_prob2:
-                        # Gauge chart
+                        # chart
                         spam_prob = probabilities[1] * 100
                         
                         fig = go.Figure(go.Indicator(
