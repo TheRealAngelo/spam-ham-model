@@ -1,8 +1,8 @@
-# 📱 SMS Spam Detector
+#  SMS Spam Detector
 
 A machine learning-powered SMS spam detection application built with Python, Scikit-learn, and Streamlit.
 
-## 🎯 Features
+##  Features
 
 - **Real-time Spam Detection**: Analyze SMS messages instantly
 - **Interactive Web Interface**: Beautiful and user-friendly Streamlit dashboard
@@ -11,7 +11,7 @@ A machine learning-powered SMS spam detection application built with Python, Sci
 - **Batch Processing**: Analyze multiple messages at once
 - **Performance Metrics**: Detailed model evaluation with confusion matrix
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 spam-ham-model/
@@ -27,7 +27,7 @@ spam-ham-model/
 └── README.md           # This file
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Option 1: Automated Deployment (Recommended)
 
@@ -37,10 +37,10 @@ python deploy.py
 ```
 
 This script will:
-1. ✅ Install all dependencies
-2. 🧠 Train the machine learning model
-3. 🧪 Test the model
-4. 🚀 Launch the Streamlit application
+1.  Install all dependencies
+2.  Train the machine learning model
+3.  Test the model
+4.  Launch the Streamlit application
 
 ### Option 2: Manual Setup
 
@@ -64,7 +64,7 @@ This script will:
    streamlit run main.py
    ```
 
-## 📦 Dependencies
+##  Dependencies
 
 - **streamlit** >= 1.28.0 - Web application framework
 - **pandas** >= 1.5.0 - Data manipulation
@@ -152,7 +152,7 @@ The Streamlit interface can be customized by editing `main.py`:
 - Add new visualization components
 - Change the layout and colors
 
-## 📊 Model Evaluation
+##  Model Evaluation
 
 The training script provides comprehensive evaluation metrics:
 - **Accuracy Score**: Overall classification accuracy
@@ -160,7 +160,7 @@ The training script provides comprehensive evaluation metrics:
 - **Confusion Matrix**: Visual representation of prediction results
 - **Probability Distributions**: Confidence analysis
 
-## 🚀 Deployment Options
+##  Deployment Options
 
 ### Local Deployment
 ```bash
@@ -211,7 +211,7 @@ python deploy.py --skip-test
 python deploy.py --only-deploy
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -219,30 +219,27 @@ python deploy.py --only-deploy
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - SMS Spam Collection Dataset by Tiago A. Almeida and José María Gómez Hidalgo
 - Scikit-learn community for the excellent machine learning library
 - Streamlit team for the amazing web app framework
 
-## 📞 Support
+##  Support
 
 If you encounter any issues or have questions:
 1. Check the troubleshooting section below
 2. Search existing issues on GitHub
 3. Create a new issue with detailed information
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
 **Model files not found:**
 ```
-❌ Model files not found! Please run train.py first to train the model.
+ Model files not found! Please run train.py first to train the model.
 ```
 **Solution:** Run `python train.py` to create the model files.
 
@@ -266,4 +263,4 @@ FileNotFoundError: spam.csv
 
 ---
 
-**Built with ❤️ using Python, Scikit-learn, and Streamlit**
+**By: Angelo Morales © 2025**

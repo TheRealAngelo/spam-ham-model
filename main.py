@@ -17,6 +17,15 @@ st.set_page_config(
 #CSS
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+st.markdown('''
+<div class="bubbles">
+  <div class="bubble" style="width:60px; height:60px; left:10vw; animation-delay:0s;"></div>
+  <div class="bubble" style="width:40px; height:40px; left:30vw; animation-delay:2s;"></div>
+  <div class="bubble" style="width:80px; height:80px; left:50vw; animation-delay:4s;"></div>
+  <div class="bubble" style="width:50px; height:50px; left:70vw; animation-delay:1s;"></div>
+  <div class="bubble" style="width:70px; height:70px; left:85vw; animation-delay:3s;"></div>
+</div>
+''', unsafe_allow_html=True)
 
 @st.cache_resource
 def load_models():
