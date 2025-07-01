@@ -1,9 +1,10 @@
-/* Modern, clean, and interactive style for SMS Spam Detector */
+/* Modern, dark chrome-inspired style for SMS Spam Detector */
 body, .stApp {
     min-height: 100vh;
-    background: linear-gradient(-45deg, #e3f0ff, #f9e7ff, #e0ffe7, #fffbe7);
+    background: linear-gradient(135deg, #181c20 0%, #23272b 60%, #2c3136 100%);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    animation: gradientBG 18s ease-in-out infinite;
+    color: #e0e6ed;
 }
 
 @keyframes gradientBG {
@@ -14,11 +15,12 @@ body, .stApp {
 
 .main-header {
     font-size: 3.5rem;
-    color: #1f77b4;
+    color: #00ffe7;
     text-align: center;
     margin-bottom: 2rem;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 2px;
+    text-shadow: 0 2px 16px #00ffe7, 0 0px 2px #222;
     animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
 }
 
@@ -29,12 +31,14 @@ body, .stApp {
 
 .prediction-box {
     padding: 1.5rem;
-    border-radius: 16px;
+    border-radius: 18px;
     margin: 1.5rem 0;
     text-align: center;
     font-size: 1.4rem;
     font-weight: bold;
-    box-shadow: 0 4px 24px 0 rgba(31,119,180,0.08);
+    box-shadow: 0 4px 32px 0 rgba(0,255,231,0.10);
+    background: linear-gradient(120deg, #23272b 60%, #31363b 100%);
+    border: 1.5px solid #444b52;
     transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeIn 1s both;
 }
@@ -45,43 +49,44 @@ body, .stApp {
 }
 
 .spam-box {
-    background: linear-gradient(90deg, #ffebee 60%, #ffe3e3 100%);
-    color: #c62828;
-    border: 2px solid #e57373;
-    box-shadow: 0 2px 16px 0 rgba(198,40,40,0.08);
+    background: linear-gradient(90deg, #2c2323 60%, #3a2323 100%);
+    color: #ff3c6a;
+    border: 2px solid #ff3c6a;
+    box-shadow: 0 2px 24px 0 rgba(255,60,106,0.10);
     animation: pulseSpam 1.5s infinite alternate;
 }
 
 @keyframes pulseSpam {
-    0% {box-shadow: 0 0 0 0 rgba(198,40,40,0.15);}
-    100% {box-shadow: 0 0 16px 8px rgba(198,40,40,0.10);}
+    0% {box-shadow: 0 0 0 0 rgba(255,60,106,0.18);}
+    100% {box-shadow: 0 0 24px 12px rgba(255,60,106,0.10);}
 }
 
 .ham-box {
-    background: linear-gradient(90deg, #e8f5e8 60%, #e0ffe7 100%);
-    color: #2e7d32;
-    border: 2px solid #81c784;
-    box-shadow: 0 2px 16px 0 rgba(46,125,50,0.08);
+    background: linear-gradient(90deg, #23322c 60%, #23403a 100%);
+    color: #00ffe7;
+    border: 2px solid #00ffe7;
+    box-shadow: 0 2px 24px 0 rgba(0,255,231,0.10);
     animation: pulseHam 1.5s infinite alternate;
 }
 
 @keyframes pulseHam {
-    0% {box-shadow: 0 0 0 0 rgba(46,125,50,0.15);}
-    100% {box-shadow: 0 0 16px 8px rgba(46,125,50,0.10);}
+    0% {box-shadow: 0 0 0 0 rgba(0,255,231,0.18);}
+    100% {box-shadow: 0 0 24px 12px rgba(0,255,231,0.10);}
 }
 
 .info-box {
-    background: rgba(240,242,246,0.95);
+    background: rgba(40,44,52,0.98);
     padding: 1.2rem 1rem;
-    border-radius: 10px;
-    border-left: 6px solid #1f77b4;
+    border-radius: 12px;
+    border-left: 6px solid #00ffe7;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 12px 0 rgba(31,119,180,0.06);
+    box-shadow: 0 2px 16px 0 rgba(0,255,231,0.08);
+    color: #e0e6ed;
     transition: box-shadow 0.3s;
 }
 
 .info-box:hover {
-    box-shadow: 0 4px 24px 0 rgba(31,119,180,0.12);
+    box-shadow: 0 4px 32px 0 rgba(0,255,231,0.16);
 }
 
 .stButton > button, .stTextArea textarea {
@@ -91,48 +96,52 @@ body, .stApp {
 }
 
 .stButton > button {
-    background: linear-gradient(90deg, #1f77b4 60%, #6ec6ff 100%);
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 2px 8px 0 rgba(31,119,180,0.10);
+    background: linear-gradient(90deg, #00ffe7 60%, #00bfff 100%);
+    color: #181c20;
+    font-weight: 700;
+    box-shadow: 0 2px 12px 0 rgba(0,255,231,0.10);
     border: none;
     margin-bottom: 0.5rem;
+    text-shadow: 0 1px 8px #00ffe7;
 }
 
 .stButton > button:hover {
-    background: linear-gradient(90deg, #1565c0 60%, #29b6f6 100%);
-    box-shadow: 0 4px 16px 0 rgba(31,119,180,0.18);
-    transform: translateY(-2px) scale(1.03);
+    background: linear-gradient(90deg, #00bfff 60%, #00ffe7 100%);
+    box-shadow: 0 4px 24px 0 rgba(0,255,231,0.18);
+    transform: translateY(-2px) scale(1.04);
 }
 
 .stTextArea textarea {
-    background: rgba(255,255,255,0.95);
-    border: 1.5px solid #b3c6e0;
-    box-shadow: 0 1px 6px 0 rgba(31,119,180,0.04);
+    background: rgba(30,34,40,0.98);
+    border: 1.5px solid #00bfff;
+    color: #e0e6ed;
+    box-shadow: 0 1px 8px 0 rgba(0,255,231,0.04);
     padding: 1rem;
     font-size: 1.1rem;
     transition: border 0.2s, box-shadow 0.2s;
 }
 
 .stTextArea textarea:focus {
-    border: 2px solid #1f77b4;
-    box-shadow: 0 2px 12px 0 rgba(31,119,180,0.10);
+    border: 2px solid #00ffe7;
+    box-shadow: 0 2px 16px 0 rgba(0,255,231,0.10);
 }
 
 .stMetric {
-    background: rgba(255,255,255,0.85);
+    background: rgba(30,34,40,0.92);
     border-radius: 8px;
-    box-shadow: 0 2px 8px 0 rgba(31,119,180,0.06);
+    box-shadow: 0 2px 12px 0 rgba(0,255,231,0.06);
     padding: 0.5rem 0.8rem;
     margin-bottom: 0.5rem;
+    color: #00ffe7;
+    border: 1px solid #00bfff;
     transition: box-shadow 0.2s;
 }
 
 .stMetric:hover {
-    box-shadow: 0 4px 16px 0 rgba(31,119,180,0.12);
+    box-shadow: 0 4px 24px 0 rgba(0,255,231,0.12);
 }
 
-/* Animated floating bubbles background */
+/* Animated floating bubbles background - cyber chrome style */
 .bubbles {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -143,9 +152,12 @@ body, .stApp {
 .bubble {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.18;
+    opacity: 0.22;
     animation: floatBubble 16s linear infinite;
-    background: linear-gradient(135deg, #1f77b4 60%, #e3f0ff 100%);
+    background: radial-gradient(circle at 30% 30%, #00ffe7 0%, #23272b 80%);
+    box-shadow: 0 0 32px 8px #00ffe744, 0 0 8px 2px #00bfff44;
+    border: 1.5px solid #00ffe7;
+    filter: blur(0.5px);
 }
 @keyframes floatBubble {
     0% {transform: translateY(100vh) scale(0.8);}
