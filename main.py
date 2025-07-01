@@ -179,7 +179,7 @@ def main():
                         st.plotly_chart(fig, use_container_width=True)
                     
                     # Detailed probabilities
-                    st.markdown("### 📈 Detailed Probabilities")
+                    st.markdown("###  Detailed Probabilities")
                     prob_col1, prob_col2 = st.columns(2)
                     
                     with prob_col1:
@@ -199,11 +199,11 @@ def main():
                 st.warning(" Please enter a message to analyze.")
     
     with col2:
-        st.header("📋 Information")
+        st.header(" Information")
         
         st.markdown("""
-        <div class="info-box">
-        <h4>🎯 How it works:</h4>
+        <div class="info-box" style="color: black;">
+        <h4> How it works:</h4>
         <ul>
         <li>Enter your SMS message in the text area</li>
         <li>Click "Analyze Message" to get predictions</li>
@@ -238,7 +238,7 @@ def main():
     st.markdown("---")
     st.markdown("""
     <div style='text-align: center; color: #666; padding: 2rem;'>
-        <p>Your messages are processed locally and not stored anywhere.</p>
+        <p>By: Angelo Morales © 2025</p>
         <p>Built with Streamlit • Powered by Machine Learning</p>
     </div>
     """, unsafe_allow_html=True)
