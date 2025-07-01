@@ -1,14 +1,14 @@
 /* futuristic fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap');
 
+/* CYBERPUNK THEME */
 body, .stApp {
     min-height: 100vh;
-    background: linear-gradient(135deg, #181c20 0%, #23272b 60%, #2c3136 100%);
+    background: linear-gradient(135deg, #1a0033 0%, #0f0c29 40%, #302b63 80%, #ff0080 100%);
     background-size: 400% 400%;
     animation: gradientBG 18s ease-in-out infinite;
-    color: #e0e6ed;
-    font-family: 'Share Tech Mono', 'Orbitron', 'Consolas', 'Menlo', 'monospace', sans-serif;
-    letter-spacing: 0.5px;
+    color: #f8f8f8;
+    font-family: 'Share Tech Mono', 'Orbitron', 'Segoe UI', Arial, sans-serif;
 }
 
 @keyframes gradientBG {
@@ -17,22 +17,50 @@ body, .stApp {
     100% {background-position: 0% 50%;}
 }
 
-.main-header {
-    font-size: 3.5rem;
-    color: #00ffe7;
+.main-header, .main-title-text {
+    font-family: 'Orbitron', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
+    font-size: 2.7rem;
+    color: #ff00cc;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
     font-weight: 900;
-    letter-spacing: 2.5px;
-    text-shadow: 0 2px 24px #00ffe7, 0 0px 2px #222, 0 0 8px #00ffe7;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 24px #ff00cc, 0 0px 2px #222, 0 0 8px #00fff7;
+    position: relative;
+    z-index: 2;
     animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
-    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
-    text-transform: uppercase;
 }
 
-@keyframes fadeInDown {
-    0% {opacity: 0; transform: translateY(-40px);}
-    100% {opacity: 1; transform: translateY(0);}
+.neon-glow {
+    filter: drop-shadow(0 0 12px #ff00cc) drop-shadow(0 0 24px #00fff7);
+}
+
+.icon-glow {
+    font-size: 2.2rem;
+    margin-right: 0.7rem;
+    vertical-align: middle;
+    color: #00fff7;
+    filter: drop-shadow(0 0 12px #00fff7);
+    animation: pulseIcon 2.5s infinite alternate;
+}
+@keyframes pulseIcon {
+    0% { filter: drop-shadow(0 0 12px #00fff7); }
+    100% { filter: drop-shadow(0 0 32px #ff00cc); }
+}
+
+.header-bar {
+    display: block;
+    margin: 1.1rem auto 0 auto;
+    width: 220px;
+    height: 6px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #ff00cc 0%, #00fff7 100%);
+    box-shadow: 0 0 32px 8px #ff00cccc, 0 0 8px 2px #00fff799;
+    animation: barGlow 2.5s infinite alternate;
+}
+@keyframes barGlow {
+    0% { box-shadow: 0 0 32px 8px #ff00cccc, 0 0 8px 2px #00fff799; }
+    100% { box-shadow: 0 0 64px 16px #ff00cccc, 0 0 16px 4px #00fff799; }
 }
 
 .prediction-box {
@@ -42,13 +70,12 @@ body, .stApp {
     text-align: center;
     font-size: 1.4rem;
     font-weight: bold;
-    box-shadow: 0 4px 32px 0 #00ffe733, 0 0 8px #00ffe7;
-    background: linear-gradient(120deg, #23272b 60%, #31363b 100%);
-    border: 1.5px solid #00ffe7;
+    box-shadow: 0 4px 32px 0 #ff00cc33;
+    background: linear-gradient(120deg, #1a0033 60%, #302b63 100%);
+    border: 2px solid #ff00cc;
     transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeIn 1s both;
-    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
-    letter-spacing: 1.2px;
+    color: #fff;
 }
 
 @keyframes fadeIn {
@@ -57,44 +84,38 @@ body, .stApp {
 }
 
 .spam-box {
-    background: linear-gradient(90deg, #2c2323 60%, #3a2323 100%);
-    color: #ff3c6a;
-    border: 2px solid #ff3c6a;
-    box-shadow: 0 2px 24px 0 #ff3c6a33, 0 0 8px #ff3c6a;
+    background: linear-gradient(90deg, #2c0023 60%, #3a0033 100%);
+    color: #ff0080;
+    border: 2px solid #ff0080;
+    box-shadow: 0 2px 24px 0 #ff008033;
     animation: pulseSpam 1.5s infinite alternate;
-    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
-
 @keyframes pulseSpam {
-    0% {box-shadow: 0 0 0 0 rgba(255,60,106,0.18);}
-    100% {box-shadow: 0 0 24px 12px rgba(255,60,106,0.10);}
+    0% {box-shadow: 0 0 0 0 #ff008033;}
+    100% {box-shadow: 0 0 24px 12px #ff008033;}
 }
 
 .ham-box {
-    background: linear-gradient(90deg, #23322c 60%, #23403a 100%);
-    color: #00ffe7;
-    border: 2px solid #00ffe7;
-    box-shadow: 0 2px 24px 0 #00ffe733, 0 0 8px #00ffe7;
+    background: linear-gradient(90deg, #00332c 60%, #00333a 100%);
+    color: #00fff7;
+    border: 2px solid #00fff7;
+    box-shadow: 0 2px 24px 0 #00fff733;
     animation: pulseHam 1.5s infinite alternate;
-    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
-
 @keyframes pulseHam {
-    0% {box-shadow: 0 0 0 0 rgba(0,255,231,0.18);}
-    100% {box-shadow: 0 0 24px 12px rgba(0,255,231,0.10);}
+    0% {box-shadow: 0 0 0 0 #00fff733;}
+    100% {box-shadow: 0 0 24px 12px #00fff733;}
 }
 
 .info-box {
-    background: rgba(40,44,52,0.98);
+    background: rgba(40,10,52,0.98);
     padding: 1.2rem 1rem;
     border-radius: 12px;
-    border-left: 6px solid #00ffe7;
+    border-left: 6px solid #ff00cc;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 16px 0 #00ffe71a, 0 0 8px #00ffe7;
-    color: #e0e6ed;
+    box-shadow: 0 2px 16px 0 #ff00cc22;
+    color: #fff;
     transition: box-shadow 0.3s;
-    font-family: 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
-    font-size: 1.08rem;
 }
 
 .info-box:hover {
@@ -105,58 +126,52 @@ body, .stApp {
     border-radius: 8px !important;
     font-size: 1.1rem;
     transition: box-shadow 0.2s, background 0.2s;
-    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
 
 .stButton > button {
-    background: linear-gradient(90deg, #00ffe7 60%, #00bfff 100%);
-    color: #181c20;
+    background: linear-gradient(90deg, #ff00cc 60%, #00fff7 100%);
+    color: #1a0033;
     font-weight: 700;
-    box-shadow: 0 2px 12px 0 #00ffe71a, 0 0 8px #00ffe7;
+    box-shadow: 0 2px 12px 0 #ff00cc33;
     border: none;
     margin-bottom: 0.5rem;
-    text-shadow: 0 1px 8px #00ffe7;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
+    text-shadow: 0 1px 8px #ff00cc;
 }
 
 .stButton > button:hover {
-    background: linear-gradient(90deg, #00bfff 60%, #00ffe7 100%);
-    box-shadow: 0 4px 24px 0 #00ffe72e, 0 0 12px #00ffe7;
+    background: linear-gradient(90deg, #00fff7 60%, #ff00cc 100%);
+    box-shadow: 0 4px 24px 0 #00fff733;
     transform: translateY(-2px) scale(1.04);
 }
 
 .stTextArea textarea {
-    background: rgba(30,34,40,0.98);
-    border: 1.5px solid #00bfff;
-    color: #e0e6ed;
-    box-shadow: 0 1px 8px 0 #00ffe710;
+    background: rgba(30,4,40,0.98);
+    border: 1.5px solid #ff00cc;
+    color: #fff;
+    box-shadow: 0 1px 8px 0 #ff00cc22;
     padding: 1rem;
     font-size: 1.1rem;
     transition: border 0.2s, box-shadow 0.2s;
-    font-family: 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
 }
 
 .stTextArea textarea:focus {
-    border: 2px solid #00ffe7;
-    box-shadow: 0 2px 16px 0 #00ffe71a;
+    border: 2px solid #00fff7;
+    box-shadow: 0 2px 16px 0 #00fff733;
 }
 
 .stMetric {
-    background: rgba(30,34,40,0.92);
+    background: rgba(30,4,40,0.92);
     border-radius: 8px;
-    box-shadow: 0 2px 12px 0 #00ffe710, 0 0 8px #00ffe7;
+    box-shadow: 0 2px 12px 0 #ff00cc22;
     padding: 0.5rem 0.8rem;
     margin-bottom: 0.5rem;
-    color: #00ffe7;
-    border: 1px solid #00bfff;
+    color: #00fff7;
+    border: 1px solid #ff00cc;
     transition: box-shadow 0.2s;
-    font-family: 'Orbitron', 'Share Tech Mono', 'Consolas', 'Menlo', 'monospace', sans-serif;
-    letter-spacing: 1px;
 }
 
 .stMetric:hover {
-    box-shadow: 0 4px 24px 0 #00ffe71f, 0 0 12px #00ffe7;
+    box-shadow: 0 4px 24px 0 #00fff733;
 }
 
 /* bubbles background - cyber chrome style */
@@ -172,9 +187,9 @@ body, .stApp {
     border-radius: 50%;
     opacity: 0.22;
     animation: floatBubble 16s linear infinite;
-    background: radial-gradient(circle at 30% 30%, #00ffe7 0%, #23272b 80%);
-    box-shadow: 0 0 32px 8px #00ffe744, 0 0 8px 2px #00bfff44;
-    border: 1.5px solid #00ffe7;
+    background: radial-gradient(circle at 30% 30%, #ff00cc 0%, #1a0033 80%);
+    box-shadow: 0 0 32px 8px #ff00cc44, 0 0 8px 2px #00fff744;
+    border: 1.5px solid #ff00cc;
     filter: blur(0.5px);
 }
 @keyframes floatBubble {
