@@ -209,7 +209,7 @@ def main():
     st.markdown("""
     <div style='text-align: center; color: #666; padding: 2rem;'>
         <p>By: Morales, A. ; Oro, M.D © 2025</p>
-        <p>Built with Streamlit • Powered by Machine Learning</p>
+        <p>Built with Streamlit • Powered by Python</p>
     </div>
     """, unsafe_allow_html=True)
 
